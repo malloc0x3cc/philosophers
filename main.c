@@ -6,7 +6,7 @@
 /*   By: madelwau <madelwau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/08 13:56:37 by madelwau          #+#    #+#             */
-/*   Updated: 2026/05/08 14:07:18 by madelwau         ###   ########.fr       */
+/*   Updated: 2026/05/08 14:16:07 by madelwau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	main(int ac, char **av)
 {
-	(void)av;
 	if (ac < 5 || ac > 6)
 	{
 		printf("USAGE: %s n_of_philo death_time eat_time sleep_time", av[0]);

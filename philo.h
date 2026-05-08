@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: madelwau <madelwau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/08 13:56:37 by madelwau          #+#    #+#             */
-/*   Updated: 2026/05/08 14:07:18 by madelwau         ###   ########.fr       */
+/*   Created: 2026/05/08 13:52:01 by madelwau          #+#    #+#             */
+/*   Updated: 2026/05/08 14:14:51 by madelwau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#ifndef PHILO_H
+# define PHILO_H
 
-int	main(int ac, char **av)
+# include <stdio.h>
+# include <stdlib.h>
+# include <string.h>
+# include <unistd.h>
+# include <pthread.h>
+# include <sys/time.h>
+
+typedef struct s_philo
 {
-	(void)av;
-	if (ac < 5 || ac > 6)
-	{
-		printf("USAGE: %s n_of_philo death_time eat_time sleep_time", av[0]);
-		return (printf(" [n_of_times_each_philo_must_eat]\n"), EXIT_FAILURE);
-	}
-	return (EXIT_SUCCESS);
-}
+	int			id;
+	int			is_eating;
+	int			is_sleeping;
+	int			is_thinking;
+	pthread_t	thread;
+}	t_philo;
+
+#endif

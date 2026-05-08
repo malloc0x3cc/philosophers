@@ -6,7 +6,7 @@
 #    By: madelwau <madelwau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/21 22:49:18 by madelwau          #+#    #+#              #
-#    Updated: 2026/05/08 13:46:11 by madelwau         ###   ########.fr        #
+#    Updated: 2026/05/08 13:50:10 by madelwau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ SHELL =	/bin/sh
 NAME	= philo
 
 CC		= cc
-CFLAGS	= -Wall -Wextra -Werror -I. -MMD -MP
+CFLAGS	= -Wall -Wextra -Werror -I. -lpthread -MMD -MP
 
 # MLX_DIR	= minilibx-linux
 # MLX		= $(MLX_DIR)/libmlx.a

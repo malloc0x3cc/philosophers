@@ -6,7 +6,7 @@
 /*   By: madelwau <madelwau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/08 13:56:37 by madelwau          #+#    #+#             */
-/*   Updated: 2026/06/19 15:17:33 by madelwau         ###   ########.fr       */
+/*   Updated: 2026/06/24 16:33:22 by madelwau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int	is_philo_dead(t_philo *philo, t_data *data)
 		data->dead_flag = 1;
 		pthread_mutex_unlock(&data->dead_mutex);
 		pthread_mutex_lock(&data->write_mutex);
-		printf("%ld %d died\n", get_time() - data->start_time, philo->id);
+		printf("[%ldms] %d died\n", get_time() - data->start_time, philo->id);
 		pthread_mutex_unlock(&data->write_mutex);
 		pthread_mutex_unlock(&philo->meal_mutex);
 		return (1);

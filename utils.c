@@ -6,7 +6,7 @@
 /*   By: madelwau <madelwau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 10:26:30 by madelwau          #+#    #+#             */
-/*   Updated: 2026/06/19 15:11:33 by madelwau         ###   ########.fr       */
+/*   Updated: 2026/06/24 16:33:15 by madelwau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	print_status(char *str, t_philo *philo)
 	pthread_mutex_lock(&philo->data->dead_mutex);
 	pthread_mutex_lock(&philo->data->write_mutex);
 	if (!philo->data->dead_flag)
-		printf("%ld %d %s\n",
+		printf("[%ldms] %d %s\n",
 			get_time() - philo->data->start_time, philo->id, str);
 	pthread_mutex_unlock(&philo->data->write_mutex);
 	pthread_mutex_unlock(&philo->data->dead_mutex);

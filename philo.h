@@ -6,7 +6,7 @@
 /*   By: madelwau <madelwau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/08 13:52:01 by madelwau          #+#    #+#             */
-/*   Updated: 2026/06/19 15:09:24 by madelwau         ###   ########.fr       */
+/*   Updated: 2026/08/22 12:10:46 by madelwau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,9 @@ typedef struct s_philo
 	pthread_t		thread;
 }	t_philo;
 
-/* init */
+/* routines */
 int		init_data(t_data *data, int ac, char **av);
 void	init_philos(t_data *data, t_philo *philos);
-/* routines */
 void	*philo_routine(void *pointer);
 /* utils */
 long	get_time(void);

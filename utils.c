@@ -6,7 +6,7 @@
 /*   By: madelwau <madelwau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 10:26:30 by madelwau          #+#    #+#             */
-/*   Updated: 2026/06/24 16:33:15 by madelwau         ###   ########.fr       */
+/*   Updated: 2026/08/22 11:58:05 by madelwau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,18 +49,22 @@ void	print_status(char *str, t_philo *philo)
 	pthread_mutex_unlock(&philo->data->dead_mutex);
 }
 
+static int	ft_isspace(int c)
+{
+	return (c == ' ' || (c >= '\t' && c <= '\r'));
+}
+
 int	ft_atoi(const char *nptr)
 {
 	int	n;
 	int	sign;
 
-	n = 0;
 	sign = 1;
-	while (*nptr == ' ' || *nptr == '\t' || *nptr == '\n'
-		|| *nptr == '\r' || *nptr == '\v' || *nptr == '\f')
+	while (ft_isspace(*nptr))
 		nptr++;
 	if ((*nptr == '+' || *nptr == '-') && *nptr++ == '-')
 		sign = -1;
+	n = 0;
 	while (*nptr >= '0' && *nptr <= '9')
 		n = (n * 10) + (*nptr++ - '0');
 	return (n * sign);

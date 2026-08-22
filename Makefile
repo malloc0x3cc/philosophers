@@ -19,7 +19,7 @@ CFLAGS	:= -Wall -Wextra -Werror -I. -MMD -MP
 
 LIBS	:= -lreadline
 
-SRCS	:= init.c main.c routines.c utils.c
+SRCS	:= main.c routines.c utils.c
 MODE	:= mandatory
 
 OBJ_DIR	:= .obj/

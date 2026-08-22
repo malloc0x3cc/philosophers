@@ -54,5 +54,9 @@ dkms.conf
 # debug information files
 *.dwo
 
+.vscode/
+.idea/
 *.swp
+
+# executable
 philo

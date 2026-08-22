@@ -6,7 +6,7 @@
 /*   By: madelwau <madelwau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/08 13:56:37 by madelwau          #+#    #+#             */
-/*   Updated: 2026/08/22 11:45:28 by mac              ###   ########.fr       */
+/*   Updated: 2026/08/22 12:14:30 by madelwau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,6 @@ static int	start_threads(t_data *data, t_philo *philos)
 	return (1);
 }
 
-/* TODO: check edge cases */
 int	main(int ac, char **av)
 {
 	t_data	data;

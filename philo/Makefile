@@ -6,7 +6,7 @@
 #    By: madelwau <madelwau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/04 12:58:29 by madelwau          #+#    #+#              #
-#    Updated: 2026/06/09 10:32:14 by madelwau         ###   ########.fr        #
+#    Updated: 2026/09/03 16:58:18 by madelwau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ CFLAGS	:= -Wall -Wextra -Werror -I. -MMD -MP
 
 LIBS	:= -lreadline
 
-SRCS	:= main.c routines.c utils.c
+SRCS	:= main.c routines.c utils.c parsing.c
 MODE	:= mandatory
 
 OBJ_DIR	:= .obj/

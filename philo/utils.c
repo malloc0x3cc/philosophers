@@ -6,7 +6,7 @@
 /*   By: madelwau <madelwau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 10:26:30 by madelwau          #+#    #+#             */
-/*   Updated: 2026/09/03 17:02:58 by madelwau         ###   ########.fr       */
+/*   Updated: 2026/09/11 13:16:38 by madelwau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int	init_data(t_data *data, int ac, char **av)
 {
+	data->forks = NULL;
 	data->nb_philos = ft_atoi(av[1]);
 	data->time_to_die = ft_atoi(av[2]);
 	data->time_to_eat = ft_atoi(av[3]);
@@ -21,9 +22,9 @@ int	init_data(t_data *data, int ac, char **av)
 	data->must_eat_count = -1;
 	if (ac == 6)
 		data->must_eat_count = ft_atoi(av[5]);
-	if (data->nb_philos <= 0 || data->time_to_die <= 0
-		|| data->time_to_eat <= 0 || data->time_to_sleep <= 0
-		|| (ac == 6 && data->must_eat_count <= 0))
+	if (data->nb_philos <= 0 || data->nb_philos > 200
+		|| data->time_to_die <= 0 || data->time_to_eat <= 0
+		|| data->time_to_sleep <= 0 || (ac == 6 && data->must_eat_count <= 0))
 		return (0);
 	data->dead_flag = 0;
 	pthread_mutex_init(&data->dead_mutex, NULL);

@@ -6,7 +6,7 @@
 /*   By: madelwau <madelwau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/08 13:56:37 by madelwau          #+#    #+#             */
-/*   Updated: 2026/09/03 16:56:49 by madelwau         ###   ########.fr       */
+/*   Updated: 2026/09/11 12:36:40 by madelwau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,10 @@ int	main(int ac, char **av)
 	if (ac != 5 && ac != 6)
 		return (printf("Error: invalid arguments\n"), 1);
 	philos = NULL;
-	if (!init_data(&data, ac, av) || !init_philos(&data, &philos))
+	data.forks = NULL;
+	if (!init_data(&data, ac, av))
+		return (printf("Error: invalid parameters\n"), 1);
+	if (!init_philos(&data, &philos))
 		return (clean_all(&data, philos), 1);
 	if (!start_threads(&data, philos))
 		return (clean_all(&data, philos), 1);

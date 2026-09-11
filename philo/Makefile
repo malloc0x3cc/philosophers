@@ -6,18 +6,17 @@
 #    By: madelwau <madelwau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/04 12:58:29 by madelwau          #+#    #+#              #
-#    Updated: 2026/09/03 16:58:18 by madelwau         ###   ########.fr        #
+#    Updated: 2026/09/11 13:32:05 by madelwau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SHELL	:=	/bin/sh
 
-NAME	:= $(strip philo)
+NAME	:= philo
 
 CC		:= cc
 CFLAGS	:= -Wall -Wextra -Werror -I. -MMD -MP
-
-LIBS	:= -lreadline
+LIBS	:= -pthread
 
 SRCS	:= main.c routines.c utils.c parsing.c
 MODE	:= mandatory
@@ -34,7 +33,7 @@ $(NAME): $(OBJS)
 
 $(OBJ_DIR)%.o: %.c
 	@mkdir -p $(dir $@)
-	@$(CC) $(CFLAGS) -I$(LFT_DIR) -I. -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 	@printf "$(COL_G)[OK]$(COL_0) %s -> %s\n" "$<" "$@"
 
 clean:
@@ -47,7 +46,15 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+debug: CFLAGS += -g3 -fsanitize=thread,undefined
+debug: re
+
+valgrind: CFLAGS += -g3
+valgrind: re
+	@valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(NAME) 4 400 200 200
+	@printf '$(COL_Y)[DONE] %s ($(MODE))$(COL_0)\n' "$(NAME)"
+
+.PHONY: all clean fclean re debug valgrind
 -include $(DEPS)
 
 # Colors

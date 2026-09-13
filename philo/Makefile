@@ -12,7 +12,7 @@
 
 SHELL	:=	/bin/sh
 
-NAME	:= $(strip philo)
+NAME	:= philo
 
 CC		:= cc
 CFLAGS	:= -Wall -Wextra -Werror -I. -MMD -MP
@@ -47,7 +47,10 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+debug: CFLAGS += -g3 -O0
+debug: re
+
+.PHONY: all clean fclean re debug
 -include $(DEPS)
 
 # Colors

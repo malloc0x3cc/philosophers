@@ -6,7 +6,7 @@
 /*   By: madelwau <madelwau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/03 17:00:00 by madelwau          #+#    #+#             */
-/*   Updated: 2026/09/03 17:11:02 by madelwau         ###   ########.fr       */
+/*   Updated: 2026/09/11 12:34:25 by madelwau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,6 @@ void	print_status(char *str, t_philo *philo)
 	pthread_mutex_unlock(&philo->data->dead_mutex);
 }
 
-static int	ft_isspace(int c)
-{
-	return (c == ' ' || (c >= '\t' && c <= '\r'));
-}
-
 static int	ft_isdigit(int c)
 {
 	return (c >= '0' && c <= '9');
@@ -35,16 +30,22 @@ static int	ft_isdigit(int c)
 
 int	ft_atoi(const char *nptr)
 {
-	int	n;
-	int	sign;
+	long	n;
 
-	n = 0;
-	sign = 1;
-	while (ft_isspace(*nptr))
+	while (*nptr == ' ' || (*nptr >= '\t' && *nptr <= '\r'))
 		nptr++;
-	if ((*nptr == '+' || *nptr == '-') && *nptr++ == '-')
-		sign = -1;
-	while (ft_isdigit(*nptr))
+	if (*nptr == '+')
+		nptr++;
+	if (!ft_isdigit(*nptr))
+		return (-1);
+	n = 0;
+	while (*nptr)
+	{
+		if (!ft_isdigit(*nptr))
+			return (-1);
 		n = (n * 10) + (*nptr++ - '0');
-	return (n * sign);
+		if (n > 2147483647)
+			return (-1);
+	}
+	return ((int)n);
 }
